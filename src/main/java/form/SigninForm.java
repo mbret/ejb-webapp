@@ -25,7 +25,6 @@ public class SigninForm extends Form {
      * @return
      */
     public boolean validateUsername( String username ){
-        System.out.println("Check username : " + username);
         if(username == null){
             this.errors.put( FIELD_EMAIL, FIELD_EMAIL + " should not be null");
             return false;

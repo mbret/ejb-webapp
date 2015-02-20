@@ -21,6 +21,22 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>web.servlet.Auth.Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Articles</servlet-name>
+        <servlet-class>web.servlet.Article.Articles</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Folders</servlet-name>
+        <servlet-class>web.servlet.Folder.Folders</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Subscribe</servlet-name>
+        <servlet-class>web.servlet.Subscribe</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WriteArticle</servlet-name>
+        <servlet-class>web.servlet.Article.WriteArticle</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
@@ -38,19 +54,35 @@
         <servlet-name>Logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Articles</servlet-name>
+        <url-pattern>/articles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Folders</servlet-name>
+        <url-pattern>/folders</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Subscribe</servlet-name>
+        <url-pattern>/subscribe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WriteArticle</servlet-name>
+        <url-pattern>/articles/write</url-pattern>
+    </servlet-mapping>
 
     <!--http://www.tutorialspoint.com/servlets/servlets-writing-filters.htm-->
     <filter>
         <filter-name>ConfigInjectorFilter</filter-name>
-        <filter-class>web.filter.ConfigInjector</filter-class>
+        <filter-class>web.filter.ConfigInjectorFilter</filter-class>
     </filter>
     <filter>
         <filter-name>IsAuthenticatedFilter</filter-name>
-        <filter-class>web.filter.IsAuthenticated</filter-class>
+        <filter-class>web.filter.IsAuthenticatedFilter</filter-class>
     </filter>
     <filter>
         <filter-name>FlashFilter</filter-name>
-        <filter-class>web.filter.Flash</filter-class>
+        <filter-class>web.filter.FlashFilter</filter-class>
     </filter>
 
     <filter-mapping>

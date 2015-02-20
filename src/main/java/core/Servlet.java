@@ -26,7 +26,7 @@ public abstract class Servlet extends HttpServlet {
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         if( this.view == null){
-            throw new ServletException("You have to initialize the view attribute in order to use parent doGet()");
+            throw new ServletException("You have to initialize the view attribute in order to use parent doGet(). If you did that maybe look at the route config!");
         }
         
         this.getServletContext().getRequestDispatcher( this.view ).forward(request, response);

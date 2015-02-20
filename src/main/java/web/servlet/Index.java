@@ -16,8 +16,6 @@ public class Index extends Servlet {
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
-        System.out.println(request.getAttribute("error"));
-        
         this.getServletContext().getRequestDispatcher(Config.ROUTES_PARTIALS + "/index.jsp" ).forward(request, response);
     }
 }

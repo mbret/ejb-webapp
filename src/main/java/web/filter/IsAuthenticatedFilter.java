@@ -6,7 +6,6 @@ import core.Config;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,9 +13,9 @@ import java.util.logging.Logger;
 /**
  * Created by Maxime on 2/20/2015.
  */
-public class IsAuthenticated implements Filter {
+public class IsAuthenticatedFilter implements Filter {
 
-    private final static Logger LOGGER = Logger.getLogger(IsAuthenticated.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(IsAuthenticatedFilter.class.getName());
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

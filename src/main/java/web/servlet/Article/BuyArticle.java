@@ -16,12 +16,6 @@ public class BuyArticle extends Servlet {
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         
-        // Check auth
-        if(null == request.getSession().getAttribute("user")){
-            response.sendRedirect( Config.ROUTE_SIGNIN );
-            return;
-        }
-
-        this.getServletContext().getRequestDispatcher(Config.ROUTES_PARTIALS + "/index.jsp" ).forward(request, response);
+        return;
     }
 }

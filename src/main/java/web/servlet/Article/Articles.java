@@ -13,10 +13,9 @@ import java.io.IOException;
 /**
  * Created by Maxime on 11/25/2014.
  */
-public class NoteArticle extends Servlet {
+public class Articles extends Servlet {
 
-    public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-        
-        return;
+    public Articles() {
+        this.view = Config.getViews().get(Config.ROUTE_ARTICLES);
     }
 }

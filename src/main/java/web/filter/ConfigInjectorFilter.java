@@ -7,7 +7,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.util.*;
 
-public class ConfigInjector implements Filter  {
+public class ConfigInjectorFilter implements Filter  {
    
     public void  init(FilterConfig config) throws ServletException{
 
