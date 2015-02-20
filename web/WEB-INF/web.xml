@@ -11,7 +11,15 @@
     </servlet>
     <servlet>
         <servlet-name>Signin</servlet-name>
-        <servlet-class>web.servlet.Signin</servlet-class>
+        <servlet-class>web.servlet.Auth.Signin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Signup</servlet-name>
+        <servlet-class>web.servlet.Auth.Signup</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>web.servlet.Auth.Logout</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -21,6 +29,14 @@
     <servlet-mapping>
         <servlet-name>Signin</servlet-name>
         <url-pattern>/signin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Signup</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
     <!--http://www.tutorialspoint.com/servlets/servlets-writing-filters.htm-->
@@ -32,13 +48,21 @@
         <filter-name>IsAuthenticatedFilter</filter-name>
         <filter-class>web.filter.IsAuthenticated</filter-class>
     </filter>
+    <filter>
+        <filter-name>FlashFilter</filter-name>
+        <filter-class>web.filter.Flash</filter-class>
+    </filter>
 
-    <!--<filter-mapping>-->
-        <!--<filter-name>IsAuthenticatedFilter</filter-name>-->
-        <!--<url-pattern>/*</url-pattern>-->
-    <!--</filter-mapping>-->
+    <filter-mapping>
+        <filter-name>IsAuthenticatedFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <filter-mapping>
         <filter-name>ConfigInjectorFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FlashFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     

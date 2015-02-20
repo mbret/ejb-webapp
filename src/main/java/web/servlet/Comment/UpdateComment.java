@@ -1,4 +1,4 @@
-package web.servlet;
+package web.servlet.Comment;
 
 
 import core.Config;
@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Created by Maxime on 11/25/2014.
  */
-public class ReadArticle extends HttpServlet {
+public class UpdateComment extends HttpServlet {
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         

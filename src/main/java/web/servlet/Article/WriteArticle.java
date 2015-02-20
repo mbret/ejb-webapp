@@ -1,4 +1,4 @@
-package web.servlet;
+package web.servlet.Article;
 
 
 import core.Config;
@@ -12,11 +12,16 @@ import java.io.IOException;
 /**
  * Created by Maxime on 11/25/2014.
  */
-public class Signin extends Main {
+public class WriteArticle extends HttpServlet {
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         
+        // Check auth
+        if(null == request.getSession().getAttribute("user")){
+            response.sendRedirect( Config.ROUTE_SIGNIN );
+            return;
+        }
 
-        this.getServletContext().getRequestDispatcher(Config.ROUTES_PARTIALS + "/signin.jsp" ).forward(request, response);
+        this.getServletContext().getRequestDispatcher(Config.ROUTES_PARTIALS + "/index.jsp" ).forward(request, response);
     }
 }

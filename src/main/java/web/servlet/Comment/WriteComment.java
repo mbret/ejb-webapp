@@ -1,4 +1,4 @@
-package web.servlet;
+package web.servlet.Comment;
 
 
 import core.Config;
