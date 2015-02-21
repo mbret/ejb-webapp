@@ -1,13 +1,13 @@
 package bean;
 
-import core.Bean;
+import core.BeanAbstract;
 
 import java.util.Date;
 
 /**
  * Created by Maxime on 2/21/2015.
  */
-public class CommentBean extends Bean {
+public class CommentBean extends BeanAbstract {
 
     public String content;
     public UserBean author;

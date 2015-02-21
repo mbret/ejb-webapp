@@ -21,12 +21,14 @@ public class Config {
     public static String ROUTE_FOLDERS = "/folders";
     public static String ROUTE_SUBSCRIBE = "/subscribe";
     public static String ROUTE_COMMENT_POST = "/articles/comments/post";
+    public static String ROUTE_PROFILE = "/profile";
 
     public static String MESSAGE_LOGGED = "You have been logged in!";
     public static String MESSAGE_SIGNUP = "You have been register!";
     public static String MESSAGE_LOGOUT = "You have been logged out!";
     public static String MESSAGE_WROTE = "Article created!";
     public static String MESSAGE_COMMENT_POSTED = "Comment posted!";
+    public static String MESSAGE_SUBSCRIBED = "You are now a gold member, well done!";
 
     // Used in views
     // substring remove the first /
@@ -41,6 +43,7 @@ public class Config {
         routes.put("article", ROUTE_ARTICLE.substring(1));
         routes.put("logout", ROUTE_LOGOUT.substring(1));
         routes.put("postComment", ROUTE_COMMENT_POST.substring(1));
+        routes.put("profile", ROUTE_PROFILE.substring(1));
     }
 
     static {
@@ -49,9 +52,9 @@ public class Config {
         views.put(ROUTE_SIGNUP, ROUTES_PARTIALS + "/signup.jsp");
         views.put(ROUTE_ARTICLES, ROUTES_PARTIALS + "/index.jsp");
         views.put(ROUTE_FOLDERS, ROUTES_PARTIALS + "/folders.jsp");
-        views.put(ROUTE_SUBSCRIBE, ROUTES_PARTIALS + "/subscribe.jsp");
         views.put(ROUTE_ARTICLE_WRITE, ROUTES_PARTIALS + "/articles-write.jsp");
         views.put(ROUTE_ARTICLE, ROUTES_PARTIALS + "/articles-detail.jsp");
+        views.put(ROUTE_PROFILE, ROUTES_PARTIALS + "/profile.jsp");
     }
 
     public static HashMap<String, String> getRoutes()

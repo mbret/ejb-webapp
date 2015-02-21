@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Created by Maxime on 11/25/2014.
  */
-abstract  public class Form {
+abstract  public class FormAbstract {
 
     protected Map<String, String> errors = new HashMap<String, String>();
     protected Map<String, String> values = new HashMap<String, String>();

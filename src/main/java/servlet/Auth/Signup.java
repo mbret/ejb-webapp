@@ -1,12 +1,12 @@
-package web.servlet.Auth;
-
+package servlet.Auth;
 
 import bean.UserBean;
 import core.Config;
-import core.Servlet;
+import core.ServletAbstract;
 import form.SignupForm;
-import web.service.AuthService;
-import web.service.FlashService;
+import model.AuthUser;
+import service.AuthService;
+import service.FlashService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * Created by Maxime on 11/25/2014.
  */
-public class Signup extends Servlet {
+public class Signup extends ServletAbstract {
 
     public Signup() {
         this.view = Config.getViews().get(Config.ROUTE_SIGNUP);
@@ -41,7 +41,7 @@ public class Signup extends Servlet {
             this.getServletContext().getRequestDispatcher( this.view ).forward( request, response );
         }
         else{
-            AuthService.logIn(new UserBean(12, "user@gmail.com"), request);
+            AuthService.logIn(new AuthUser(12, "user@gmail.com", "password"), request);
 
             FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_SIGNUP);
             

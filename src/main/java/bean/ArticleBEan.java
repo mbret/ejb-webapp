@@ -1,6 +1,6 @@
 package bean;
 
-import core.Bean;
+import core.BeanAbstract;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,13 +8,14 @@ import java.util.Date;
 /**
  * Created by Maxime on 2/21/2015.
  */
-public class ArticleBean extends Bean {
+public class ArticleBean extends BeanAbstract {
     
     public String title;
     public String content;
     public Date date;
     public UserBean author;
     public ArrayList<CommentBean> comments = new ArrayList<CommentBean>();
+    public String role;
     
     public ArticleBean() {
         

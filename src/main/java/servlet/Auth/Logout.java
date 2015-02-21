@@ -1,11 +1,10 @@
-package web.servlet.Auth;
+package servlet.Auth;
 
 import core.Config;
-import core.Servlet;
-import web.service.FlashService;
+import core.ServletAbstract;
+import service.FlashService;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -13,7 +12,7 @@ import java.io.IOException;
 /**
  * Created by Maxime on 11/25/2014.
  */
-public class Logout extends Servlet {
+public class Logout extends ServletAbstract {
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 

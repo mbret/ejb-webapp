@@ -1,8 +1,7 @@
-package web.servlet.Comment;
+package servlet.Article;
 
 
-import core.Config;
-import core.Servlet;
+import core.ServletAbstract;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,10 +11,10 @@ import java.io.IOException;
 /**
  * Created by Maxime on 11/25/2014.
  */
-public class DeleteComment extends Servlet {
+public class NoteArticle extends ServletAbstract {
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         
-       return;
+        return;
     }
 }

@@ -1,7 +1,7 @@
 package core;
 
 
-import web.service.FlashService;
+import service.FlashService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Created by Maxime on 11/25/2014.
  */
-public abstract class Servlet extends HttpServlet {
+public abstract class ServletAbstract extends HttpServlet {
 
     protected String view;
 

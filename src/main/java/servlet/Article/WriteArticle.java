@@ -1,15 +1,12 @@
-package web.servlet.Auth;
+package servlet.Article;
 
 
-import bean.UserBean;
 import core.Config;
-import core.Servlet;
-import form.SigninForm;
-import web.service.AuthService;
-import web.service.FlashService;
+import core.ServletAbstract;
+import form.ArticleForm;
+import service.FlashService;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -17,15 +14,15 @@ import java.io.IOException;
 /**
  * Created by Maxime on 11/25/2014.
  */
-public class Signin extends Servlet {
+public class WriteArticle extends ServletAbstract {
 
-    public Signin(){
-        this.view = Config.getViews().get(Config.ROUTE_SIGNIN);
+    public WriteArticle() {
+        this.view = Config.getViews().get(Config.ROUTE_ARTICLE_WRITE);
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
-        SigninForm form = new SigninForm();
+        ArticleForm form = new ArticleForm();
         form.populate( request );
 
         if( ! form.isValid() ){
@@ -33,12 +30,12 @@ public class Signin extends Servlet {
             this.getServletContext().getRequestDispatcher( this.view ).forward( request, response );
         }
         else{
-            AuthService.logIn(new UserBean(12, "user@gmail.com"), request);
-
-            FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_LOGGED);
             
+            // save article
+            // ...
+            
+            FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_WROTE);
             response.sendRedirect( Config.ROUTE_INDEX );
         }
     }
-
 }

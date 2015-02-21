@@ -1,14 +1,12 @@
-package web.servlet.Comment;
+package servlet.Comment;
 
 
 import core.Config;
-import core.Servlet;
-import form.ArticleForm;
+import core.ServletAbstract;
 import form.CommentForm;
-import web.service.FlashService;
+import service.FlashService;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -16,7 +14,7 @@ import java.io.IOException;
 /**
  * Created by Maxime on 11/25/2014.
  */
-public class WriteComment extends Servlet {
+public class WriteComment extends ServletAbstract {
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
@@ -27,7 +25,7 @@ public class WriteComment extends Servlet {
         String redirect = request.getParameter("redirect");
         
         if( ! form.isValid() ){
-            FlashService.addMessage( FlashService.FlashLevel.ERROR, form.getErrors());
+            FlashService.addMessage(FlashService.FlashLevel.ERROR, form.getErrors());
             response.sendRedirect(redirect);
         }
         else{

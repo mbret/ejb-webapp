@@ -3,14 +3,14 @@ package core;
 /**
  * Created by Maxime on 2/21/2015.
  */
-public class Bean {
+public abstract class BeanAbstract {
     
     public Object id;
 
-    public Bean() {
+    public BeanAbstract() {
     }
 
-    public Bean(Object id) {
+    public BeanAbstract(Object id) {
         this.id = id;
     }
 

@@ -1,13 +1,13 @@
 package form;
 
-import core.Form;
+import core.FormAbstract;
 
 import java.util.ArrayList;
 
 /**
  * Created by Maxime on 11/25/2014.
  */
-public class CommentForm extends Form {
+public class CommentForm extends FormAbstract {
 
     public static final String FIELD_CONTENT   = "content";
 

@@ -1,7 +1,7 @@
-package web.filter;
+package filter;
 
 
-import web.service.FlashService;
+import service.FlashService;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
