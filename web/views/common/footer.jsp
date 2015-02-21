@@ -1,13 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/messages.jsp"%>
 
-<div class="footer">
-    <div class="footer-inner">
-        <div class="footer-content">
-                <span class="bigger-120">
-                    <span class="blue bolder">MIAGE</span>
-                    EJB Application &copy; 2015
-                </span>
-        </div>
-    </div>
-</div>
+<footer class="blog-footer">
+    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>
+        <a href="#">Back to top</a>
+    </p>
+</footer>

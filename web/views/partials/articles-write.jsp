@@ -12,17 +12,26 @@
 
 <%@include file="../common/header.jsp"%>
 
-<div class="container-fluid">
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">Write an article</h1>
+    </div>
+
     <div class="row">
 
-        <%@include file="../common/sidebar.jsp"%>
-        
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Write an article</h1>
+        <div class="col-sm-12 blog-main">
 
-            <%--Place here your content--%>
+            <c:forEach var="article" items="${articles}">
+                <div class="blog-post">
+                    <h2 class="blog-post-title"><a href="${pageContext.request.contextPath}/${routes.article}?id=${article.id}"><c:out value="${article.title}"/></a></h2>
+                    <p class="blog-post-meta"><c:out value="${article.date}"/> by <a href="#"><c:out value="${article.author.email}"/></a></p>
+                    <p><c:out value="${article.content}"/></p>
+                </div><!-- /.blog-post -->
+            </c:forEach>
 
-        </div>
+        </div><!-- /.blog-main -->
+
     </div>
 </div>
 

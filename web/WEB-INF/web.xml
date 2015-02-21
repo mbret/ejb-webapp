@@ -5,11 +5,6 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>Index</servlet-name>
-        <servlet-class>web.servlet.Index</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet>
         <servlet-name>Signin</servlet-name>
         <servlet-class>web.servlet.Auth.Signin</servlet-class>
     </servlet>
@@ -37,9 +32,13 @@
         <servlet-name>WriteArticle</servlet-name>
         <servlet-class>web.servlet.Article.WriteArticle</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetailArticle</servlet-name>
+        <servlet-class>web.servlet.Article.ReadArticle</servlet-class>
+    </servlet>
     
     <servlet-mapping>
-        <servlet-name>Index</servlet-name>
+        <servlet-name>Articles</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -55,10 +54,6 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Articles</servlet-name>
-        <url-pattern>/articles</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Folders</servlet-name>
         <url-pattern>/folders</url-pattern>
     </servlet-mapping>
@@ -69,6 +64,10 @@
     <servlet-mapping>
         <servlet-name>WriteArticle</servlet-name>
         <url-pattern>/articles/write</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailArticle</servlet-name>
+        <url-pattern>/articles/detail</url-pattern>
     </servlet-mapping>
 
     <!--http://www.tutorialspoint.com/servlets/servlets-writing-filters.htm-->

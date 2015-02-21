@@ -15,7 +15,8 @@ public class Config {
     public static String ROUTE_SIGNUP = "/signup";
     public static String ROUTE_INDEX = "/index";
     public static String ROUTE_LOGOUT = "/logout";
-    public static String ROUTE_ARTICLES = "/articles";
+    public static String ROUTE_ARTICLES = "/index";
+    public static String ROUTE_ARTICLE = "/articles/detail";
     public static String ROUTE_ARTICLE_WRITE = "/articles/write";
     public static String ROUTE_FOLDERS = "/folders";
     public static String ROUTE_SUBSCRIBE = "/subscribe";
@@ -34,6 +35,7 @@ public class Config {
         routes.put("folders", ROUTE_FOLDERS.substring(1));
         routes.put("subscribe", ROUTE_SUBSCRIBE.substring(1));
         routes.put("writeArticle", ROUTE_ARTICLE_WRITE.substring(1));
+        routes.put("article", ROUTE_ARTICLE.substring(1));
         routes.put("logout", ROUTE_LOGOUT.substring(1));
     }
 
@@ -41,10 +43,11 @@ public class Config {
         views = new HashMap<String, String>();
         views.put(ROUTE_SIGNIN, ROUTES_PARTIALS + "/signin.jsp");
         views.put(ROUTE_SIGNUP, ROUTES_PARTIALS + "/signup.jsp");
-        views.put(ROUTE_ARTICLES, ROUTES_PARTIALS + "/articles.jsp");
+        views.put(ROUTE_ARTICLES, ROUTES_PARTIALS + "/index.jsp");
         views.put(ROUTE_FOLDERS, ROUTES_PARTIALS + "/folders.jsp");
         views.put(ROUTE_SUBSCRIBE, ROUTES_PARTIALS + "/subscribe.jsp");
         views.put(ROUTE_ARTICLE_WRITE, ROUTES_PARTIALS + "/articles-write.jsp");
+        views.put(ROUTE_ARTICLE, ROUTES_PARTIALS + "/articles-detail.jsp");
     }
 
     public static HashMap<String, String> getRoutes()
