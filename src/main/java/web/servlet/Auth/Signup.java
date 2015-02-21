@@ -1,9 +1,11 @@
 package web.servlet.Auth;
 
 
+import bean.UserBean;
 import core.Config;
 import core.Servlet;
 import form.SignupForm;
+import web.service.AuthService;
 import web.service.FlashService;
 
 import javax.servlet.ServletException;
@@ -39,8 +41,7 @@ public class Signup extends Servlet {
             this.getServletContext().getRequestDispatcher( this.view ).forward( request, response );
         }
         else{
-            request.getSession().setAttribute("user", "I'm the power user, brace yourself");
-            request.getSession().setMaxInactiveInterval(300);
+            AuthService.logIn(new UserBean(12, "user@gmail.com"), request);
 
             FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_SIGNUP);
             

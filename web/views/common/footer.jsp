@@ -2,7 +2,7 @@
 <%@include file="../common/messages.jsp"%>
 
 <footer class="blog-footer">
-    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>Blog built for <a href="">EJB project</a> by <a href="">@thomas</a> <a href="">@damien</a> <a href="">@brien</a> <a href="">@maxime</a>.</p>
     <p>
         <a href="#">Back to top</a>
     </p>

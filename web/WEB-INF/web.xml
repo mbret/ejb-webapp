@@ -36,6 +36,10 @@
         <servlet-name>DetailArticle</servlet-name>
         <servlet-class>web.servlet.Article.ReadArticle</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>WriteComment</servlet-name>
+        <servlet-class>web.servlet.Comment.WriteComment</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>Articles</servlet-name>
@@ -68,6 +72,10 @@
     <servlet-mapping>
         <servlet-name>DetailArticle</servlet-name>
         <url-pattern>/articles/detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WriteComment</servlet-name>
+        <url-pattern>/articles/comments/post</url-pattern>
     </servlet-mapping>
 
     <!--http://www.tutorialspoint.com/servlets/servlets-writing-filters.htm-->

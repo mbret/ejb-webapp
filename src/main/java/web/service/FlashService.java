@@ -27,12 +27,12 @@ public class FlashService {
         return INSTANCE;
     }
 
-    public static void addMessage( String level, String message ){
+    public static void addMessage( String level, Object message ){
         getInstance().request.getSession().setAttribute( level, message);
     }
     
-    public static  String getMessage( String level ){
-        String message = (String) getInstance().request.getSession().getAttribute( level );
+    public static  Object getMessage( String level ){
+        Object message = getInstance().request.getSession().getAttribute( level );
         getInstance().request.getSession().removeAttribute( level );
         return message;
     }

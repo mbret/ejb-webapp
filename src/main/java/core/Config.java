@@ -20,10 +20,13 @@ public class Config {
     public static String ROUTE_ARTICLE_WRITE = "/articles/write";
     public static String ROUTE_FOLDERS = "/folders";
     public static String ROUTE_SUBSCRIBE = "/subscribe";
+    public static String ROUTE_COMMENT_POST = "/articles/comments/post";
 
     public static String MESSAGE_LOGGED = "You have been logged in!";
     public static String MESSAGE_SIGNUP = "You have been register!";
     public static String MESSAGE_LOGOUT = "You have been logged out!";
+    public static String MESSAGE_WROTE = "Article created!";
+    public static String MESSAGE_COMMENT_POSTED = "Comment posted!";
 
     // Used in views
     // substring remove the first /
@@ -37,6 +40,7 @@ public class Config {
         routes.put("writeArticle", ROUTE_ARTICLE_WRITE.substring(1));
         routes.put("article", ROUTE_ARTICLE.substring(1));
         routes.put("logout", ROUTE_LOGOUT.substring(1));
+        routes.put("postComment", ROUTE_COMMENT_POST.substring(1));
     }
 
     static {

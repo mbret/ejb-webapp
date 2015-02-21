@@ -1,7 +1,9 @@
 package web.filter;
 
 
+import bean.UserBean;
 import core.Config;
+import web.service.AuthService;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +32,7 @@ public class IsAuthenticatedFilter implements Filter {
         String uri = req.getRequestURI();
         LOGGER.log(Level.INFO, "Requested Resource::" + uri);
 
-        req.getSession().setAttribute("user", "user");
+//        AuthService.logIn(new UserBean(12, "user@gmail.com"), req);
         Object user = req.getSession().getAttribute("user");
 
         if( 

@@ -2,6 +2,7 @@ package bean;
 
 import core.Bean;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -13,7 +14,8 @@ public class ArticleBean extends Bean {
     public String content;
     public Date date;
     public UserBean author;
-
+    public ArrayList<CommentBean> comments = new ArrayList<CommentBean>();
+    
     public ArticleBean() {
         
     }
@@ -40,5 +42,9 @@ public class ArticleBean extends Bean {
 
     public UserBean getAuthor() {
         return author;
+    }
+
+    public ArrayList<CommentBean> getComments() {
+        return comments;
     }
 }

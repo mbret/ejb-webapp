@@ -22,15 +22,30 @@
 
         <div class="col-sm-12 blog-main">
 
-            <c:forEach var="article" items="${articles}">
-                <div class="blog-post">
-                    <h2 class="blog-post-title"><a href="${pageContext.request.contextPath}/${routes.article}?id=${article.id}"><c:out value="${article.title}"/></a></h2>
-                    <p class="blog-post-meta"><c:out value="${article.date}"/> by <a href="#"><c:out value="${article.author.email}"/></a></p>
-                    <p><c:out value="${article.content}"/></p>
-                </div><!-- /.blog-post -->
-            </c:forEach>
+            <div class="blog-frame" data-example-id="simple-horizontal-form" >
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="email" name="title" class="form-control" id="inputEmail3" placeholder="Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Content</label>
+                        <div class="col-sm-10">
+                            <textarea name="content" rows="10" class="form-control" id="inputPassword3" placeholder="Write your article here"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
         </div><!-- /.blog-main -->
+
 
     </div>
 </div>

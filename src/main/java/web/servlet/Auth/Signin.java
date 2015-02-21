@@ -1,9 +1,11 @@
 package web.servlet.Auth;
 
 
+import bean.UserBean;
 import core.Config;
 import core.Servlet;
 import form.SigninForm;
+import web.service.AuthService;
 import web.service.FlashService;
 
 import javax.servlet.ServletException;
@@ -17,7 +19,7 @@ import java.io.IOException;
  */
 public class Signin extends Servlet {
 
-    public Signin() {
+    public Signin(){
         this.view = Config.getViews().get(Config.ROUTE_SIGNIN);
     }
 
@@ -31,8 +33,7 @@ public class Signin extends Servlet {
             this.getServletContext().getRequestDispatcher( this.view ).forward( request, response );
         }
         else{
-            request.getSession().setAttribute("user", "µPower user motherfucker");
-            request.getSession().setMaxInactiveInterval(300);
+            AuthService.logIn(new UserBean(12, "user@gmail.com"), request);
 
             FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_LOGGED);
             
