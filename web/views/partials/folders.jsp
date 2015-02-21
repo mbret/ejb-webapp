@@ -12,16 +12,20 @@
 
 <%@include file="../common/header.jsp"%>
 
-<div class="container-fluid">
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">Folders</h1>
+    </div>
+
     <div class="row">
 
-        <%@include file="../common/sidebar.jsp"%>
-        
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Folders</h1>
+        <div class="col-sm-12 blog-main">
 
-            <%--Place here your content--%>
-        </div>
+
+
+        </div><!-- /.blog-main -->
+
     </div>
 </div>
 

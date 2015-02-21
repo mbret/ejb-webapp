@@ -6,43 +6,43 @@
 
     <servlet>
         <servlet-name>Signin</servlet-name>
-        <servlet-class>servlet.Auth.Signin</servlet-class>
+        <servlet-class>webapp.servlet.Auth.Signin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Signup</servlet-name>
-        <servlet-class>servlet.Auth.Signup</servlet-class>
+        <servlet-class>webapp.servlet.Auth.Signup</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Logout</servlet-name>
-        <servlet-class>servlet.Auth.Logout</servlet-class>
+        <servlet-class>webapp.servlet.Auth.Logout</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Articles</servlet-name>
-        <servlet-class>servlet.Article.Articles</servlet-class>
+        <servlet-class>webapp.servlet.Article.Articles</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Folders</servlet-name>
-        <servlet-class>servlet.Folder.Folders</servlet-class>
+        <servlet-class>webapp.servlet.Folder.Folders</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Subscribe</servlet-name>
-        <servlet-class>servlet.Subscribe</servlet-class>
+        <servlet-class>webapp.servlet.Subscribe</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>WriteArticle</servlet-name>
-        <servlet-class>servlet.Article.WriteArticle</servlet-class>
+        <servlet-class>webapp.servlet.Article.WriteArticle</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DetailArticle</servlet-name>
-        <servlet-class>servlet.Article.ReadArticle</servlet-class>
+        <servlet-class>webapp.servlet.Article.ReadArticle</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>WriteComment</servlet-name>
-        <servlet-class>servlet.Comment.WriteComment</servlet-class>
+        <servlet-class>webapp.servlet.Comment.WriteComment</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Profile</servlet-name>
-        <servlet-class>servlet.Profile</servlet-class>
+        <servlet-class>webapp.servlet.Profile</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -89,15 +89,15 @@
     <!--http://www.tutorialspoint.com/servlets/servlets-writing-filters.htm-->
     <filter>
         <filter-name>ConfigInjectorFilter</filter-name>
-        <filter-class>filter.ConfigInjectorFilter</filter-class>
+        <filter-class>webapp.filter.ConfigInjectorFilter</filter-class>
     </filter>
     <filter>
         <filter-name>IsAuthenticatedFilter</filter-name>
-        <filter-class>filter.IsAuthenticatedFilter</filter-class>
+        <filter-class>webapp.filter.IsAuthenticatedFilter</filter-class>
     </filter>
     <filter>
         <filter-name>FlashFilter</filter-name>
-        <filter-class>filter.FlashFilter</filter-class>
+        <filter-class>webapp.filter.FlashFilter</filter-class>
     </filter>
 
     <filter-mapping>
