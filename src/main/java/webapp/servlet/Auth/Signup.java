@@ -56,8 +56,13 @@ public class Signup extends ServletAbstract {
             }
             
             // Create user
-            UserShared user = this.userbean.save(form.getValues().get(SigninForm.FIELD_EMAIL), form.getValues().get(SigninForm.FIELD_PASSWORD));
-            
+            UserShared user = null;
+            try {
+                user = this.userbean.save(form.getValues().get(SigninForm.FIELD_EMAIL), form.getValues().get(SigninForm.FIELD_PASSWORD));
+            } catch (Exception e) {
+                throw new ServletException(e);
+            }
+
             // log in
             AuthService.logIn(new AuthUser(user.getId(), user.getMail(), user.getPassword(), user.isSubscriber()), request);
 

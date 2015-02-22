@@ -2,8 +2,6 @@ package webapp.servlet.Article;
 
 
 import ejbinterface.interfaces.ArticleRemote;
-import ejbinterface.model.ArticleShared;
-import ejbinterface.model.UserShared;
 import webapp.core.Config;
 import webapp.core.ServletAbstract;
 import webapp.form.ArticleForm;

@@ -40,7 +40,7 @@ public class Signin extends ServletAbstract {
         }
         else{
             
-            UserShared user = this.userbean.getUser( form.getValues().get(SigninForm.FIELD_EMAIL), form.getValues().get(SigninForm.FIELD_PASSWORD));
+            UserShared user = this.userbean.findOne( form.getValues().get(SigninForm.FIELD_EMAIL), form.getValues().get(SigninForm.FIELD_PASSWORD));
             
             // invalid credentials
             if(user == null){
