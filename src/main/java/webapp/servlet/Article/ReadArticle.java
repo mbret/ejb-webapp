@@ -49,8 +49,8 @@ public class ReadArticle extends ServletAbstract {
         }
         
         // Load comments
-        List<CommentShared> comments = this.commentRemote.findAllByArticle(articleBean.getId());
         try {
+            List<CommentShared> comments = this.commentRemote.findAllByArticle(articleBean.getId());
             articleBean.setComments( BeanFactory.convert(CommentBean.class, comments) );
         } catch (Exception e) {
             throw new ServletException(e);

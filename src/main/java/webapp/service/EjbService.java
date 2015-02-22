@@ -11,8 +11,8 @@ public class EjbService {
 
         // Load EJB
         InitialContext ctx =  new InitialContext();
-        System.out.println("ejbinterface.interfaces.UserRemote#ejbinterface.interfaces." + ejbClass.getSimpleName());
-        return ctx.lookup("ejbinterface.interfaces.UserRemote#ejbinterface.interfaces." + ejbClass.getSimpleName());
+        System.out.println("ejbinterface.interfaces." + ejbClass.getSimpleName() + "#ejbinterface.interfaces." + ejbClass.getSimpleName());
+        return ctx.lookup("ejbinterface.interfaces." + ejbClass.getSimpleName() + "#ejbinterface.interfaces." + ejbClass.getSimpleName());
         
     }
 }

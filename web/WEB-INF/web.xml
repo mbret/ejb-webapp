@@ -4,6 +4,11 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <error-page>
+        <error-code>500</error-code>
+        <location>/views/partials/500.jsp</location>
+    </error-page>
+    
     <servlet>
         <servlet-name>Signin</servlet-name>
         <servlet-class>webapp.servlet.Auth.Signin</servlet-class>
