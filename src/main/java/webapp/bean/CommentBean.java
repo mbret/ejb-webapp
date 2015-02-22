@@ -1,5 +1,6 @@
 package webapp.bean;
 
+import ejbinterface.model.CommentShared;
 import webapp.core.BeanAbstract;
 
 import java.util.Date;
@@ -22,6 +23,14 @@ public class CommentBean extends BeanAbstract {
         this.date = date;
     }
 
+    @Override
+    public void loadFromModel(Object model) throws Exception {
+        this.id = ((CommentShared)model).getId();
+        this.content = ((CommentShared)model).getContent();
+        this.date = ((CommentShared)model).getDate();
+        this.author = BeanFactory.convert(UserBean.class, ((CommentShared)model).getAuteur());
+    }
+    
     public CommentBean(Object id, String content, UserBean author, Date date) {
         super(id);
         this.content = content;

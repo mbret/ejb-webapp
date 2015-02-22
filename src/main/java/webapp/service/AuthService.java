@@ -17,4 +17,10 @@ public class AuthService {
     public static AuthUser getUser(HttpServletRequest request){
         return (AuthUser) request.getSession().getAttribute("user");
     }
+    
+    public static void logOut(HttpServletRequest request){
+        if(null != request.getSession().getAttribute("user")){
+            request.getSession().removeAttribute("user");
+        }
+    }
 }

@@ -1,9 +1,14 @@
 package webapp.servlet.Article;
 
 
+import ejbinterface.interfaces.ArticleRemote;
+import ejbinterface.model.ArticleShared;
+import ejbinterface.model.UserShared;
 import webapp.core.Config;
 import webapp.core.ServletAbstract;
 import webapp.form.ArticleForm;
+import webapp.service.AuthService;
+import webapp.service.EjbService;
 import webapp.service.FlashService;
 
 import javax.servlet.ServletException;
@@ -16,8 +21,11 @@ import java.io.IOException;
  */
 public class WriteArticle extends ServletAbstract {
 
-    public WriteArticle() {
+    private ArticleRemote articleRemote;
+    
+    public WriteArticle() throws Exception {
         this.view = Config.getViews().get(Config.ROUTE_ARTICLE_WRITE);
+        this.articleRemote = (ArticleRemote) EjbService.loadEJB(ArticleRemote.class);
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
@@ -30,10 +38,14 @@ public class WriteArticle extends ServletAbstract {
             this.getServletContext().getRequestDispatcher( this.view ).forward( request, response );
         }
         else{
-            
-            // save article
-            // ...
-            
+
+            // Create article
+            this.articleRemote.save(
+                    form.getValues().get(ArticleForm.FIELD_TITLE),
+                    form.getValues().get(ArticleForm.FIELD_CONTENT),
+                    AuthService.getUser(request).getId()
+            );
+
             FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_WROTE);
             response.sendRedirect( Config.ROUTE_INDEX );
         }

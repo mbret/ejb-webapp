@@ -1,9 +1,13 @@
 package webapp.servlet;
 
 
+import ejbinterface.interfaces.UserRemote;
+import ejbinterface.model.UserShared;
 import webapp.core.Config;
 import webapp.core.ServletAbstract;
 import webapp.model.AuthUser;
+import webapp.service.AuthService;
+import webapp.service.EjbService;
 import webapp.service.FlashService;
 
 import javax.servlet.ServletException;
@@ -16,6 +20,12 @@ import java.io.IOException;
  */
 public class Subscribe extends ServletAbstract {
 
+    private UserRemote userRemote;
+
+    public Subscribe() throws Exception {
+        this.userRemote = (UserRemote)EjbService.loadEJB(UserRemote.class);
+    }
+
     /**
      *
      * @param request
@@ -25,7 +35,14 @@ public class Subscribe extends ServletAbstract {
      */
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
-        AuthUser user = (AuthUser)request.getSession().getAttribute("user");
+        // Get complete user from db
+        UserShared user = this.userRemote.findOne(AuthService.getUser(request).getId());
+        
+        // update subscription
+        user.setSubscriber( true );
+        
+        // save new state
+        this.userRemote.update( user );
         
         FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_SUBSCRIBED);
         response.sendRedirect(Config.ROUTE_PROFILE);

@@ -1,13 +1,17 @@
 package webapp.servlet.Auth;
 
-import webapp.bean.UserBean;
+import ejbinterface.interfaces.UserRemote;
+import ejbinterface.model.UserShared;
 import webapp.core.Config;
 import webapp.core.ServletAbstract;
+import webapp.form.SigninForm;
 import webapp.form.SignupForm;
 import webapp.model.AuthUser;
 import webapp.service.AuthService;
+import webapp.service.EjbService;
 import webapp.service.FlashService;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,10 +22,13 @@ import java.io.IOException;
  */
 public class Signup extends ServletAbstract {
 
-    public Signup() {
-        this.view = Config.getViews().get(Config.ROUTE_SIGNUP);
-    }
+    private UserRemote userbean;
 
+    public Signup() throws Exception {
+        this.view = Config.getViews().get(Config.ROUTE_SIGNUP);
+        this.userbean = (UserRemote) EjbService.loadEJB(UserRemote.class);
+    }
+    
     /**
      * Process webapp.form
      * @param request
@@ -41,7 +48,18 @@ public class Signup extends ServletAbstract {
             this.getServletContext().getRequestDispatcher( this.view ).forward( request, response );
         }
         else{
-            AuthService.logIn(new AuthUser(12, "user@gmail.com", "password"), request);
+            
+            // Check email
+            if(this.userbean.emailExist(form.getValues().get(SignupForm.FIELD_EMAIL))){
+                request.setAttribute( FlashService.FlashLevel.ERROR, "Emeail arleady exist");
+                this.getServletContext().getRequestDispatcher( this.view ).forward( request, response );
+            }
+            
+            // Create user
+            UserShared user = this.userbean.save(form.getValues().get(SigninForm.FIELD_EMAIL), form.getValues().get(SigninForm.FIELD_PASSWORD));
+            
+            // log in
+            AuthService.logIn(new AuthUser(user.getId(), user.getMail(), user.getPassword(), user.isSubscriber()), request);
 
             FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_SIGNUP);
             

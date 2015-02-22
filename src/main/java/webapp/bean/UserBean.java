@@ -1,5 +1,6 @@
 package webapp.bean;
 
+import ejbinterface.model.UserShared;
 import webapp.core.BeanAbstract;
 
 /**
@@ -18,6 +19,13 @@ public class UserBean extends BeanAbstract {
         this.subscriber = subscriber;
     }
 
+    @Override
+    public void loadFromModel(Object model) throws Exception {
+        this.id = ((UserShared)model).getId();
+        this.email = ((UserShared)model).getMail();
+        this.subscriber = ((UserShared)model).isSubscriber();
+    }
+    
     public UserBean(Object id, String email, boolean subscriber) {
         super(id);
         this.email = email;

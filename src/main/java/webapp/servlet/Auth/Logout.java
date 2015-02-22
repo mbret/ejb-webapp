@@ -2,6 +2,7 @@ package webapp.servlet.Auth;
 
 import webapp.core.Config;
 import webapp.core.ServletAbstract;
+import webapp.service.AuthService;
 import webapp.service.FlashService;
 
 import javax.servlet.ServletException;
@@ -16,9 +17,7 @@ public class Logout extends ServletAbstract {
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
-        if(null != request.getSession().getAttribute("user")){
-            request.getSession().removeAttribute("user");
-        }
+        AuthService.logOut(request);
 
         FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_LOGOUT);
         

@@ -17,4 +17,6 @@ public abstract class BeanAbstract {
     public Object getId() {
         return id;
     }
+
+    public abstract void loadFromModel( Object model ) throws Exception;
 }

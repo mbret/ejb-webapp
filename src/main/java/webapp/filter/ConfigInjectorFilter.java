@@ -1,7 +1,10 @@
 package webapp.filter;
 
+import ejbinterface.interfaces.UserRemote;
 import webapp.core.*;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.*;
 
 public class ConfigInjectorFilter implements Filter  {
