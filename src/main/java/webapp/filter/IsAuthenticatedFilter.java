@@ -37,13 +37,13 @@ public class IsAuthenticatedFilter implements Filter {
         LOGGER.log(Level.INFO, "Requested Resource::" + uri);
 
         // Auto log for debug
-        try {
-            UserRemote userRemote = (UserRemote) EjbService.loadEJB(UserRemote.class);
-            UserShared user = userRemote.findOne(10);
-            AuthService.logIn(new AuthUser(user.getId(), user.getMail(), user.getPassword(), user.getSubscriber()), req);
-        } catch (Exception e) {
-            throw new ServletException(e);
-        }
+//        try {
+//            UserRemote userRemote = (UserRemote) EjbService.loadEJB(UserRemote.class);
+//            UserShared user = userRemote.findOne(10);
+//            AuthService.logIn(new AuthUser(user.getId(), user.getMail(), user.getPassword(), user.getSubscriber()), req);
+//        } catch (Exception e) {
+//            throw new ServletException(e);
+//        }
         
         Object user = req.getSession().getAttribute("user");
 
