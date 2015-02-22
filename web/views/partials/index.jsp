@@ -24,7 +24,7 @@
                     <h2 class="blog-post-title"><a href="${pageContext.request.contextPath}/${routes.article}?id=${article.id}"><c:out value="${article.title}"/></a></h2>
                     <p class="blog-post-meta"><c:out value="${article.date}"/> by <a href="#"><c:out value="${article.author.email}"/></a></p>
                     <p><c:out value="${article.content}"/></p>
-                    <a href="">${fn:length(article.comments)} comment(s)</a>
+                    <a href="${pageContext.request.contextPath}/${routes.article}?id=${article.id}">${fn:length(article.comments)} comment(s)</a>
                 </div><!-- /.blog-post -->
             </c:forEach>
 
