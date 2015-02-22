@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html>
 <%@include file="../common/head.jsp"%>
@@ -23,6 +24,7 @@
                     <h2 class="blog-post-title"><a href="${pageContext.request.contextPath}/${routes.article}?id=${article.id}"><c:out value="${article.title}"/></a></h2>
                     <p class="blog-post-meta"><c:out value="${article.date}"/> by <a href="#"><c:out value="${article.author.email}"/></a></p>
                     <p><c:out value="${article.content}"/></p>
+                    <a href="">${fn:length(article.comments)} comment(s)</a>
                 </div><!-- /.blog-post -->
             </c:forEach>
 

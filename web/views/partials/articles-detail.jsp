@@ -35,7 +35,7 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading"><c:out value="${comment.author}"/></h4>
+                            <h4 class="media-heading"><c:out value="${comment.author.email}"/></h4>
                             <c:out value="${comment.content}"/>
                             <p>Posted <c:out value="${comment.date}"/> </p>
                         </div>
