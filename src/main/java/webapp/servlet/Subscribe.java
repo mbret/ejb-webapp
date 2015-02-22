@@ -3,6 +3,8 @@ package webapp.servlet;
 
 import ejbinterface.interfaces.UserRemote;
 import ejbinterface.model.UserShared;
+import webapp.bean.BeanFactory;
+import webapp.bean.UserBean;
 import webapp.core.Config;
 import webapp.core.ServletAbstract;
 import webapp.model.AuthUser;
@@ -35,8 +37,12 @@ public class Subscribe extends ServletAbstract {
      */
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
-        // Get complete user from db
-        UserShared user = this.userRemote.findOne(AuthService.getUser(request).getId());
+        UserShared user;
+        try {
+            user = this.userRemote.findOne( AuthService.getUser(request).getId() );
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
         
         // update subscription
         user.setSubscriber( true );

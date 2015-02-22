@@ -1,5 +1,7 @@
 package webapp.servlet;
 
+import ejbinterface.interfaces.UserRemote;
+import ejbinterface.model.UserShared;
 import webapp.bean.*;
 import webapp.service.*;
 import webapp.core.Config;
@@ -16,13 +18,24 @@ import java.io.IOException;
  */
 public class Profile extends ServletAbstract {
 
-    public Profile() {
+    private UserRemote userRemote;
+    
+    public Profile() throws Exception {
         this.view = Config.getViews().get(Config.ROUTE_PROFILE);
+        this.userRemote = (UserRemote) EjbService.loadEJB(UserRemote.class);
     }
     
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
-        UserBean userBean = new UserBean(AuthService.getUser(request).getId(), AuthService.getUser(request).getEmail(), true );
+        UserShared user;
+        UserBean userBean;
+        try {
+            user = this.userRemote.findOne( AuthService.getUser(request).getId() );
+            userBean = BeanFactory.convert(UserBean.class, user);
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
+        
         request.setAttribute("user", userBean);
         this.getServletContext().getRequestDispatcher( this.view ).forward(request, response);
     }

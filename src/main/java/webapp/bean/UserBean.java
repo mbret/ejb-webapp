@@ -39,4 +39,12 @@ public class UserBean extends BeanAbstract {
     public boolean isSubscriber() {
         return subscriber;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSubscriber(boolean subscriber) {
+        this.subscriber = subscriber;
+    }
 }

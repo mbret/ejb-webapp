@@ -31,9 +31,9 @@ public class WriteComment extends ServletAbstract {
         form.populate( request );
 
         // Get parameters
-        String articleID = request.getParameter("article");
+        Integer articleID = Integer.parseInt((String) request.getParameter("article"));
         String redirect = request.getParameter("redirect");
-        
+
         if( ! form.isValid() ){
             FlashService.addMessage(FlashService.FlashLevel.ERROR, form.getErrors());
             response.sendRedirect(redirect);

@@ -38,11 +38,15 @@ public class WriteArticle extends ServletAbstract {
         else{
 
             // Create article
-            this.articleRemote.save(
-                    form.getValues().get(ArticleForm.FIELD_TITLE),
-                    form.getValues().get(ArticleForm.FIELD_CONTENT),
-                    AuthService.getUser(request).getId()
-            );
+            try {
+                this.articleRemote.save(
+                        form.getValues().get(ArticleForm.FIELD_TITLE),
+                        form.getValues().get(ArticleForm.FIELD_CONTENT),
+                        AuthService.getUser(request).getId()
+                );
+            } catch (Exception e) {
+                throw new ServletException(e);
+            }
 
             FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_WROTE);
             response.sendRedirect( Config.ROUTE_INDEX );

@@ -1,10 +1,13 @@
 package webapp.filter;
 
 
+import ejbinterface.interfaces.UserRemote;
+import ejbinterface.model.UserShared;
 import webapp.bean.UserBean;
 import webapp.core.Config;
 import webapp.model.AuthUser;
 import webapp.service.AuthService;
+import webapp.service.EjbService;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -33,7 +36,15 @@ public class IsAuthenticatedFilter implements Filter {
         String uri = req.getRequestURI();
         LOGGER.log(Level.INFO, "Requested Resource::" + uri);
 
-//        AuthService.logIn(new AuthUser(12, "user@gmail.com", "password"), req);
+        // Auto log for debug
+        try {
+            UserRemote userRemote = (UserRemote) EjbService.loadEJB(UserRemote.class);
+            UserShared user = userRemote.findOne(10);
+            AuthService.logIn(new AuthUser(user.getId(), user.getMail(), user.getPassword(), user.getSubscriber()), req);
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
+        
         Object user = req.getSession().getAttribute("user");
 
         if( 

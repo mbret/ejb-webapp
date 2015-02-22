@@ -22,7 +22,14 @@
                 Email: <c:out value="${user.email}"/>
             </p>
             <p>
-                <a class="blog-nav-item" onclick="return confirm('Are you sure you want to subscribe ? Really sure ? sure sure sure ?');" href="${pageContext.request.contextPath}/${routes.subscribe}">Subscribe</a>
+                <c:choose>
+                    <c:when test="${user.subscriber}">
+                        You are a subscriber, thanks ;)
+                    </c:when>
+                    <c:otherwise>
+                        <a class="blog-nav-item" onclick="return confirm('Are you sure you want to subscribe ? Really sure ? sure sure sure ?');" href="${pageContext.request.contextPath}/${routes.subscribe}">Subscribe</a>
+                    </c:otherwise>
+                </c:choose>
             </p>
 
 

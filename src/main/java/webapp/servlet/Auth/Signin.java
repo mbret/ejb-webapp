@@ -22,11 +22,11 @@ import java.io.IOException;
  */
 public class Signin extends ServletAbstract {
 
-    private UserRemote userbean;
+    private UserRemote userRemote;
 
     public Signin() throws Exception {
         this.view = Config.getViews().get(Config.ROUTE_SIGNIN);
-        this.userbean = (UserRemote) EjbService.loadEJB(UserRemote.class);
+        this.userRemote = (UserRemote) EjbService.loadEJB(UserRemote.class);
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
@@ -39,9 +39,14 @@ public class Signin extends ServletAbstract {
             this.getServletContext().getRequestDispatcher( this.view ).forward( request, response );
         }
         else{
-            
-            UserShared user = this.userbean.findOne( form.getValues().get(SigninForm.FIELD_EMAIL), form.getValues().get(SigninForm.FIELD_PASSWORD));
-            
+
+            UserShared user = null;
+            try {
+                user = this.userRemote.findOne(form.getValues().get(SigninForm.FIELD_EMAIL), form.getValues().get(SigninForm.FIELD_PASSWORD));
+            } catch (Exception e) {
+                throw new ServletException(e);
+            }
+
             // invalid credentials
             if(user == null){
                 request.setAttribute( FlashService.FlashLevel.ERROR, "Invalid credentials" );

@@ -54,7 +54,7 @@ public class Signup extends ServletAbstract {
                 request.setAttribute( FlashService.FlashLevel.ERROR, "Emeail arleady exist");
                 this.getServletContext().getRequestDispatcher( this.view ).forward( request, response );
             }
-            
+
             // Create user
             UserShared user = null;
             try {
