@@ -41,11 +41,15 @@ public class WriteComment extends ServletAbstract {
         else{
 
             // Save comment
-            this.commentRemote.save(
-                    form.getValues().get(CommentForm.FIELD_CONTENT),
-                    AuthService.getUser(request).getId(),
-                    articleID
-            );
+            try {
+                this.commentRemote.save(
+                        form.getValues().get(CommentForm.FIELD_CONTENT),
+                        AuthService.getUser(request).getId(),
+                        articleID
+                );
+            } catch (Exception e) {
+                throw new ServletException(e);
+            }
 
             FlashService.addMessage(FlashService.FlashLevel.SUCCESS, Config.MESSAGE_COMMENT_POSTED);
             response.sendRedirect( redirect );
